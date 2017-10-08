@@ -41,8 +41,8 @@ module.exports = class productController {
             if(Usuarios.PreguntarPorUsario(req.params.id,req.headers.pwd))
             {
                 res.json({
-                   authorization:Usuarios.createToken(req.params.id),
-                   data:Usuarios.getData(req.params.id)
+                   authorization:Usuarios.createToken(req.params.id)
+                  
                 })
             }
             else
