@@ -17,7 +17,7 @@ module.exports = class productController {
         
         //console.log(req);
        //console.log(req.headers.cabecer);
-
+       res.header('Access-Control-Allow-Headers', 'Accept, Content-Type, X-Requested-With');
        if(req.params.id!=null && req.headers.pwd != null)
         {
             res.json({
@@ -28,18 +28,21 @@ module.exports = class productController {
     
         }
         else
-            res.send(401,"datos no validos");
-    
+        {
+           res.send(401,"datos no validos");
+        }
     }
 
     getUsr(req,res)
     {
         const  Usuarios = new ObjetoUsuarios();
-       
+        res.header('Access-Control-Allow-Headers', 'Accept, Content-Type, X-Requested-With');
+
         if(req.params.id!=null && req.headers.pwd != null)
         {
             if(Usuarios.PreguntarPorUsario(req.params.id,req.headers.pwd))
             {
+                
                 res.json({
                    authorization:Usuarios.createToken(req.params.id)
                   
@@ -57,7 +60,7 @@ module.exports = class productController {
         const Usuarios = new ObjetoUsuarios();
        // console.log(req);
        console.log(req.headers.cabecer);
-        //res.send(200,this.products);
+       res.header('Access-Control-Allow-Headers', 'Accept, Content-Type, X-Requested-With');
         res.json({
               md5 : Usuarios.CalculaMD5(req.params.cadena)
         })
@@ -70,6 +73,7 @@ module.exports = class productController {
         
         console.log("getConfig");
         // tiene que tener en la cabecera el token
+        res.header('Access-Control-Allow-Headers', 'Accept, Content-Type, X-Requested-With');    
         if(!req.headers.authorization) {
             return res.send(403,"no token found");
           }
@@ -106,7 +110,7 @@ module.exports = class productController {
 
 
         this.products.push(product);
-
+        res.header('Access-Control-Allow-Headers', 'Accept, Content-Type, X-Requested-With');
         res.send(201,res.header('Location', '/api/products/' + product.sku));
     };
 }
