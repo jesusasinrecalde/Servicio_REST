@@ -36,7 +36,7 @@ module.exports = class productController {
     getUsr(req,res)
     {
         const  Usuarios = new ObjetoUsuarios();
-        res.header('Access-Control-Allow-Headers', 'Accept, Content-Type, X-Requested-With');
+       
 
         if(req.params.id!=null && req.headers.pwd != null)
         {
@@ -60,7 +60,7 @@ module.exports = class productController {
         const Usuarios = new ObjetoUsuarios();
        // console.log(req);
        console.log(req.headers.cabecer);
-       res.header('Access-Control-Allow-Headers', 'Accept, Content-Type, X-Requested-With');
+       
         res.json({
               md5 : Usuarios.CalculaMD5(req.params.cadena)
         })
@@ -73,7 +73,7 @@ module.exports = class productController {
         
         console.log("getConfig");
         // tiene que tener en la cabecera el token
-        res.header('Access-Control-Allow-Headers', 'Accept, Content-Type, X-Requested-With');    
+        
         if(!req.headers.authorization) {
             return res.send(403,"no token found");
           }
@@ -110,7 +110,7 @@ module.exports = class productController {
 
 
         this.products.push(product);
-        res.header('Access-Control-Allow-Headers', 'Accept, Content-Type, X-Requested-With');
+       
         res.send(201,res.header('Location', '/api/products/' + product.sku));
     };
 }
