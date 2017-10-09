@@ -27,7 +27,7 @@ module.exports = class productController {
            res.header('Access-Control-Allow-Credentials', true);
            res.header('Access-Control-Allow-Headers', allowHeaders.join(', '));
            res.header('Access-Control-Allow-Methods', res.methods.join(', '));
-           res.header('Access-Control-Allow-Origin', req.headers.origin);
+           res.header('Access-Control-Allow-Origin', "*" );
         }
        
        //------------------------------
