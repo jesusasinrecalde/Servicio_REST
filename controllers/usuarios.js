@@ -17,16 +17,59 @@ module.exports = class cUsuarios {
             this.ListUsuarios = new Array();
             var usu = {
                 Usuario:   "jesus.asin",
-                pwd: md5("jesus"),
+                pwd: md5("jesus1"),
                 data: { 
                     name : "Jesus Asin",
                     device: "demo@jesusasinrecalde.jesusasinrecalde",
                     apikey: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
-                    type:"device"
+                    type:"device",
+                    mode:"full"
+
                 }
               };
             this.ListUsuarios.push(usu);
-    
+            
+            usu = {
+                Usuario:   "alberto.asin",
+                pwd: md5("alberto1"),
+                data: { 
+                    name : "Alberto Asin",
+                    device: "demo@jesusasinrecalde.jesusasinrecalde",
+                    apikey: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
+                    type:"device",
+                    mode:"full"
+                }
+              };
+            this.ListUsuarios.push(usu);
+            
+            usu = {
+                Usuario:   "sonia.garrido",
+                pwd: md5("sonia1"),
+                data: { 
+                    name : "Sonia Garrido",
+                    device: "demo@jesusasinrecalde.jesusasinrecalde",
+                    apikey: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
+                    type:"device",
+                    mode:"full"
+                }
+
+              };
+            this.ListUsuarios.push(usu);
+            
+            usu = {
+                Usuario:   "carlos.penna",
+                pwd: md5("carlos1"),
+                data: { 
+                    name : "Juan Carlos Peña",
+                    device: "demo@jesusasinrecalde.jesusasinrecalde",
+                    apikey: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
+                    type:"device",
+                    mode:"read"
+                }
+              };
+            this.ListUsuarios.push(usu);
+            
+
             usu={
                 Usuario :   "feo",
                 pwd : "pwd",

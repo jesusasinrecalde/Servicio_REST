@@ -2,13 +2,25 @@
 
 var restify = require('restify');  
 var fs = require('fs');
+const corsMiddleware = require('restify-cors-middleware');
+
+const cors = corsMiddleware({
+    preflightMaxAge: 5, //Optional
+    origins: ['*'],
+    allowHeaders: ['pwd, authorization'],
+    exposeHeaders: ['API-Token-Expiry']
+  });
+  
+
+var config = require('./config/config.js');
 
 var server = restify.createServer();
 
 server.use(restify.acceptParser(server.acceptable));  
 server.use(restify.queryParser());  
 server.use(restify.bodyParser());
-server.use(restify.CORS());
+server.pre(cors.preflight);
+server.use(cors.actual);
 
 var config = require('./config/config.js');
 
