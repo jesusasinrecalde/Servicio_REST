@@ -78,7 +78,8 @@ module.exports = class cUsuarios {
                 pwd: md5("0000000047f5ccd01"),
                 type : "machine",
                 data: { 
-                    VERSIONSW : "1.0",
+                    VERSIONSW : "1.0", 
+                    PRB : "kk",
                     CARRIOTS_DEVICE: "prueba1@jesusasinrecalde.jesusasinrecalde",
                     CARRIOTS_DEVICEIN: "Indemo@jesusasinrecalde.jesusasinrecalde",
                     CARRIOTS_API_KEY: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
