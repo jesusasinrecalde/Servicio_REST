@@ -18,6 +18,7 @@ module.exports = class cUsuarios {
             var usu = {
                 Usuario:   "jesus.asin",
                 pwd: md5("jesus1"),
+                type : "human",
                 data: { 
                     name : "Jesus Asin",
                     device: "demo@jesusasinrecalde.jesusasinrecalde",
@@ -32,6 +33,7 @@ module.exports = class cUsuarios {
             usu = {
                 Usuario:   "alberto.asin",
                 pwd: md5("alberto1"),
+                type : "human",
                 data: { 
                     name : "Alberto Asin",
                     device: "demo@jesusasinrecalde.jesusasinrecalde",
@@ -45,6 +47,7 @@ module.exports = class cUsuarios {
             usu = {
                 Usuario:   "sonia.garrido",
                 pwd: md5("sonia1"),
+                type : "human",
                 data: { 
                     name : "Sonia Garrido",
                     device: "demo@jesusasinrecalde.jesusasinrecalde",
@@ -59,6 +62,7 @@ module.exports = class cUsuarios {
             usu = {
                 Usuario:   "carlos.penna",
                 pwd: md5("carlos1"),
+                type : "human",
                 data: { 
                     name : "Juan Carlos Peña",
                     device: "demo@jesusasinrecalde.jesusasinrecalde",
@@ -69,16 +73,34 @@ module.exports = class cUsuarios {
               };
             this.ListUsuarios.push(usu);
             
-
+            usu = {
+                Usuario:   "0000000047f5ccd0",
+                pwd: md5("0000000047f5ccd01"),
+                type : "machine",
+                data: { 
+                    VERSIONSW : "1.0",
+                    CARRIOTS_DEVICE: "prueba1@jesusasinrecalde.jesusasinrecalde",
+                    CARRIOTS_DEVICEIN: "Indemo@jesusasinrecalde.jesusasinrecalde",
+                    CARRIOTS_API_KEY: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
+                    HEJMO_WRITE :"1",
+                    HEJMO_CALL_MOVIL : "0",
+                    HEJMO_CALL_GPS : "0",
+                    type:"machine"
+                }
+              };
+            this.ListUsuarios.push(usu);
+ 
             usu={
                 Usuario :   "feo",
                 pwd : "pwd",
+                type : "unknow",
                 data: { 
                     device: "device",
                     apikey: "key"
                 }
             };
             this.ListUsuarios.push(usu);
+
         }
 
         CalculaMD5 (Cadena) {
@@ -109,10 +131,13 @@ module.exports = class cUsuarios {
             
             var retorno=0;
             var indice=0;
+            console.log("Usu "+usu);
             console.log(this.ListUsuarios);
             
             for(indice=0;indice<this.ListUsuarios.length  ;indice++)
             {
+                console.log (usu +">" + this.ListUsuarios[indice].Usuario);
+                console.log (pwd +">>" + this.ListUsuarios[indice].pwd );
                 if(usu == this.ListUsuarios[indice].Usuario && pwd == this.ListUsuarios[indice].pwd )
                 {
                    retorno=1;
@@ -120,7 +145,8 @@ module.exports = class cUsuarios {
                    break;
                 }
             }
-            
+            if(retorno==0)
+                console.log("Usuario no encontrado");
             return retorno;
         }
 

@@ -36,17 +36,12 @@ module.exports = class productController {
     getUsr(req,res)
     {
         const  Usuarios = new ObjetoUsuarios();
-       
-       
-
-
-
+  
         if(req.params.id!=null && req.headers.pwd != null)
         {
             if(Usuarios.PreguntarPorUsario(req.params.id,req.headers.pwd))
             {
-                
-                res.json({
+                 res.json({
                    authorization:Usuarios.createToken(req.params.id)
                   
                 })
@@ -76,7 +71,6 @@ module.exports = class productController {
         
         console.log("getConfig");
         // tiene que tener en la cabecera el token
-        
         if(!req.headers.authorization) {
             return res.send(403,"no token found");
           }
