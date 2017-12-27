@@ -85,7 +85,8 @@ module.exports = class cUsuarios {
                     CARRIOTS_API_KEY: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
                     HEJMO_WRITE :"1",
                     HEJMO_CALL_MOVIL : "0",
-                    HEJMO_CALL_GPS : "0",
+                    HEJMO_CALL_GPS : "0"  ,
+                    param1 :"1",
                     type:"machine"
                 }
               };
