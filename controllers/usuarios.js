@@ -86,7 +86,6 @@ module.exports = class cUsuarios {
                     HEJMO_WRITE :"1",
                     HEJMO_CALL_MOVIL : "0",
                     HEJMO_CALL_GPS : "0"  ,
-                    param1 :"1",
                     type:"machine"
                 }
               };
