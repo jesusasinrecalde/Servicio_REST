@@ -117,7 +117,7 @@ module.exports = class cUsuarios {
             console.log("getUsuario "+usuId);
             for(indice=0;indice<this.ListUsuarios.length  ;indice++)
                 {
-                    console.log("getUsuario Compare : [+"usuId+"] ["+this.ListaUsuarios[indice]+"]")
+                    console.log("getUsuario Compare : [+"usuId+"] ["+this.ListaUsuarios[indice]+"]");
                     if(usuId == this.ListUsuarios[indice].Usuario )
                     {
                        console.log("getUsuario "+this.ListaUsuarios[indice]);
