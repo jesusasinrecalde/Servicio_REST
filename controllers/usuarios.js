@@ -114,18 +114,22 @@ module.exports = class cUsuarios {
         {
             var retorno;
             var indice=0;
+            var usuarios;
             console.log("getUsuario "+usuId);
             for(indice=0;indice<this.ListUsuarios.length  ;indice++)
                 {
-                    console.log("getUsuario Compare : ["+usuId+"] ["+this.ListaUsuarios[indice]+"]");
+                    //console.log("getUsuario Compare : "+usuario);
+                   
                     if(usuId == this.ListUsuarios[indice].Usuario )
                     {
-                       console.log("getUsuario "+this.ListaUsuarios[indice]);
-                       retorno= this.ListUsuarios[indice];
-                       break;
+                       //console.log("getUsuario "+this.ListaUsuarios[indice]);
+                       console.log("getUsuario indice "+indice,toString());
+                       
+                       return  this.ListUsuarios[indice];
+                      // break;
                     }
                 }
-            return retorno;    
+            return null;    
 
         }
 

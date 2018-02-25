@@ -81,9 +81,16 @@ module.exports = class productController {
             this.cadena=req.headers.authorization;
             if( Usuarios.validaToken(this.cadena) == 0 )
             {
-                res.json({
+                if(Usuarios.getData(req.params.id) != null )
+                {
+                    res.json({
                    data:Usuarios.getData(req.params.id)
-                 })
+                    });
+                }
+                else
+                {
+                    return res.send(403,"fault data");
+                }
             }
             else
                 return res.send(403,"no token valid");
