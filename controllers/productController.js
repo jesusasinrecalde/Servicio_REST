@@ -89,6 +89,7 @@ module.exports = class productController {
                 }
                 else
                 {
+                    console.log(" error en los datos ");
                     return res.send(403,"fault data");
                 }
             }
