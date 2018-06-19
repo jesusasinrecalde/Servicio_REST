@@ -91,6 +91,25 @@ module.exports = class cUsuarios {
                 }
               };
             this.ListUsuarios.push(usu);
+
+            usu = {
+                Usuario:   "000000008862e4e9",
+                pwd: md5("000000008862e4e91"),
+                type : "machine",
+                data: { 
+                    VERSIONSW : "1.0", 
+                    PRB : "kk",
+                    ALICIA : "guapa",
+                    CARRIOTS_DEVICE: "prueba1@jesusasinrecalde.jesusasinrecalde",
+                    CARRIOTS_DEVICEIN: "Indemo@jesusasinrecalde.jesusasinrecalde",
+                    CARRIOTS_API_KEY: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
+                    HEJMO_WRITE :"1",
+                    HEJMO_CALL_MOVIL : "0",
+                    HEJMO_CALL_GPS : "0"  ,
+                    type:"machine"
+                }
+              };
+            this.ListUsuarios.push(usu);
  
             usu={
                 Usuario :   "feo",
