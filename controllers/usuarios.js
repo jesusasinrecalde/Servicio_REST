@@ -98,8 +98,6 @@ module.exports = class cUsuarios {
                 type : "machine",
                 data: { 
                     VERSIONSW : "1.0", 
-                    PRB : "kk",
-                    ALICIA : "guapa",
                     CARRIOTS_DEVICE: "prueba1@jesusasinrecalde.jesusasinrecalde",
                     CARRIOTS_DEVICEIN: "Indemo@jesusasinrecalde.jesusasinrecalde",
                     CARRIOTS_API_KEY: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
@@ -107,6 +105,20 @@ module.exports = class cUsuarios {
                     HEJMO_CALL_MOVIL : "0",
                     HEJMO_CALL_GPS : "1"  ,
                     type:"machine"
+                }
+              };
+            this.ListUsuarios.push(usu);
+
+            usu = {
+                Usuario:   "prb",
+                pwd: md5("prb"),
+                type : "human",
+                data: { 
+                    name : "Prueba de desarrollo",
+                    device: "prueba1@jesusasinrecalde.jesusasinrecalde",
+                    apikey: "ee919e312f4a7310093bb7519293dede9cf4db4262accdb9284d91f234ae7713",
+                    type:"device",
+                    mode:"read"
                 }
               };
             this.ListUsuarios.push(usu);
