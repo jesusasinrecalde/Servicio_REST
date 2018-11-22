@@ -3,6 +3,7 @@
 var restify = require('restify');  
 var fs = require('fs');
 const corsMiddleware = require('restify-cors-middleware');
+var mongoose = require('mongoose');
 
 const cors = corsMiddleware({
     preflightMaxAge: 5, //Optional
@@ -32,5 +33,15 @@ fs.readdirSync('./routes').forEach(function(curFile) {
 });
 
 server.listen(config.LISENT_PORT, function() {  
-    console.log('%s listening at %s', server.name, server.url);
+    // establish connection to mongodb atlas
+    mongoose.Promise=global.Promise;
+
+    mongoose.connect(config.db.uri, {useMongoClient: true});
+
+    var db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'));
+    db.once('open', function() {
+        console.log('%s listening at %s', server.name, server.url);
+            });
+    
 });
