@@ -1,6 +1,8 @@
 'use strict';
 var User = require ('../models/userModel.js');
 var Conf = require ('../models/configuracionModel.js');
+var Install = require ('../models/instalacionModel.js');
+var Install_elem = require ('../models/install_elementosModel.js');
 var ConfMachine = require ('../models/conf_machine.js');
 var ctoken = require('../controllers/token.js');
 
@@ -39,7 +41,7 @@ module.exports = class UserController {
                     if(usu[0].type == "human")
                     {
                         return res.json({
-                            
+                                name   : usu[0].configuracion.Name,
                                 device : usu[0].configuration_id.device,
                                 apikey : usu[0].configuration_id.apikey,
                                 type : usu[0].configuration_id.type,
@@ -82,4 +84,33 @@ module.exports = class UserController {
         return configuracion;
     }
   
+    getInstalacion(req,res,next,usuario)
+    {
+ 
+        Install.find({user:usuario,instalacion:req.params.id}, (err,inst)=>
+        {
+            if (err) 
+            { 
+                console.log("fallo en la busqueda de instalacion de usuario");
+                  return   res.send(401,"datos no validos"); 
+            }
+            if(inst.length==0)
+            {
+                console.log("no existe instalacion asociada al usuario ");
+                return   res.send(401,"datos no validos");
+            }
+
+            Install_elem.populate(inst,{path:"elem_id"},function(err, inst){
+                if(inst.length==0) return  res.send(401,"datos no validos");  // si no hay usuario mandamos un error
+                //return   res.send(201,"ok");
+                return res.json({
+                        INSTALLNAME :         inst[0].elem_id.nombre,
+                        ELEM :  inst[0].elem_id.elem
+                        });
+            });
+        }); 
+           
+    }
+
 }
+

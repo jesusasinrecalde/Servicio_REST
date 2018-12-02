@@ -8,13 +8,13 @@ module.exports = class Routes {
 
         const controller = new productController();
 
-        server.get('/api/config/:id', (req,res,next) =>
+        server.get('/_api/config/:id', (req,res,next) =>
         {
             controller.getConfig(req,res);
             next();
         });
 
-        server.get('/api/usr/:id', (req,res,next) =>
+        server.get('/_api/usr/:id', (req,res,next) =>
         {
             controller.getUsr(req,res);
             console.log('peticion get');

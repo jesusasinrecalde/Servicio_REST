@@ -64,6 +64,7 @@ var Schema = mongoose.Schema;
         );
     };
 
+    
 
 // module.exports= mongoose.model('User',UsuarioConfSchema);
  module.exports= mongoose.model('configuracion',ConfiguracionSchema);

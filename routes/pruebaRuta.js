@@ -20,7 +20,7 @@ module.exports = class Routes {
             next();
         });
 
-        // Validacion de token ----------------------
+        // da la configuracion asociada al token de token ----------------------
         server.get('/api/config/:id', (req,res,next) =>
         {
             var usuario;
@@ -29,13 +29,31 @@ module.exports = class Routes {
             {
                 return res.send(401,"datos no validos");
             }
-
+            else
+                return  Usrcontroller.ss(req,res,next,token.getUser(req.headers.token));
+           
             return res.send(200,"");
             
 
             next();
         });
         
+        server.get('/api/instalacion/:id', (req,res,next) =>
+        {
+            var usuario;
+            console.log('valida');
+            if(token.validaToken(req.headers.token)!=0)
+            {
+                return res.send(401,"datos no validos");
+            }
+            else
+              return  Usrcontroller.getInstalacion(req,res,next,token.getUser(req.headers.token));
+            return res.send(200,"");
+            
+
+            next();
+        });
+
         // nuevo usuario 
 //        server.get('/api/add', (req,res,next) =>
 //        {
