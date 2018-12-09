@@ -25,23 +25,23 @@ module.exports = class UserController {
                 console.log("usuario no encontrado");
                  return  res.send(401,"datos no validos");  // si no hay usuario mandamos un error
             }
-            return res.json({authorization:token.createToken(req.params.usr) });
+            return res.json({Authorization:token.createToken(req.params.usr) });
      
         });
     }
 
     getConfiguracion(req,res,next,usuario)
     {
- 
+        console.log("buscando usuario "+usuario);
         User.find({User:usuario}, (err,usu)=>
         {
-           
+            console.log("id configuracion "+usu[0].configuration_id);
                 Conf.populate(usu,{path:"configuration_id"},function(err, usu){
                     if(usu.length==0) return  res.send(401,"datos no validos");  // si no hay usuario mandamos un error
                     if(usu[0].type == "human")
                     {
                         return res.json({
-                                name   : usu[0].configuracion.Name,
+                                name   : usu[0].Name,
                                 device : usu[0].configuration_id.device,
                                 apikey : usu[0].configuration_id.apikey,
                                 type : usu[0].configuration_id.type,
@@ -86,7 +86,7 @@ module.exports = class UserController {
   
     getInstalacion(req,res,next,usuario)
     {
- 
+        console.log("buscand instalacion "+usuario +" instalacion "+req.params.id);
         Install.find({user:usuario,instalacion:req.params.id}, (err,inst)=>
         {
             if (err) 
@@ -105,6 +105,10 @@ module.exports = class UserController {
                 //return   res.send(201,"ok");
                 return res.json({
                         INSTALLNAME :         inst[0].elem_id.nombre,
+                        apikey : inst[0].elem_id.apikey,
+                        device : inst[0].elem_id.device,
+                        type : inst[0].elem_id.type,
+                        mode : inst[0].elem_id.mode,
                         ELEM :  inst[0].elem_id.elem
                         });
             });

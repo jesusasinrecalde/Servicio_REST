@@ -13,6 +13,47 @@ var Schema = mongoose.Schema;
         trim: true,
         required: true
     },
+    device:{
+        type: String,
+        required: true
+    },
+    apikey:{
+        type: String,
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+    mode: {
+        type: String ,
+        required: true
+    },
+    valor: {
+        type: String ,
+        required: true
+    },
+    device_in: {
+        type: String ,
+        required: true
+    },
+    hejmo_write: {
+        type: String ,
+        required: true
+    },
+    hejmo_call_movil: {
+        type: String ,
+        required: true
+    },
+    hejmo_call_gps: {
+        type: String ,
+        required: true
+    },
+    version_sw :  {
+        type: String ,
+        required: true
+    },
+    
     elem :[
         {
             tipo:{
@@ -35,6 +76,11 @@ var Schema = mongoose.Schema;
                 trim: true,
                 required: true
             },
+            modo:{
+                type: String,
+                trim: true,
+                required: true
+            }
 
         }
     ]

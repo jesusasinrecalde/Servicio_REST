@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 const cors = corsMiddleware({
     preflightMaxAge: 5, //Optional
     origins: ['*'],
-    allowHeaders: ['pwd, authorization'],
+    allowHeaders: ['pwd, Authorization'],
     exposeHeaders: ['API-Token-Expiry']
   });
   
