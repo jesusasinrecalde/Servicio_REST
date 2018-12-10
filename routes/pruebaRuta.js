@@ -63,6 +63,23 @@ module.exports = class Routes {
             next();
         });
 
+        server.get('/api/installMachine', (req,res,next) =>
+        {
+            var usuario;
+            var tok = req.headers.authorization;
+            console.log('instalacion Machine['+tok+'] ' + req.params.id);
+            if(token.validaToken(req.headers.authorization)!=0)
+            {
+                return res.send(401,"datos no validos");
+            }
+            else
+              return  Usrcontroller.getInstalacionMachine(req,res,next,token.getUser(req.headers.authorization));
+            return res.send(200,"");
+            
+
+            next();
+        });
+
         // nuevo usuario 
 //        server.get('/api/add', (req,res,next) =>
 //        {

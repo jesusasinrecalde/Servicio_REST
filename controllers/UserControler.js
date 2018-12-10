@@ -110,6 +110,43 @@ module.exports = class UserController {
                         type : inst[0].elem_id.type,
                         mode : inst[0].elem_id.mode,
                         ELEM :  inst[0].elem_id.elem
+                       
+                        });
+            });
+        }); 
+           
+    }
+
+    getInstalacionMachine(req,res,next,machine)
+    {
+        console.log("buscand instalacion "+machine);
+        Install.find({user:machine}, (err,inst)=>
+        {
+            if (err) 
+            { 
+                console.log("fallo en la busqueda de instalacion de maquina");
+                  return   res.send(401,"datos no validos"); 
+            }
+            if(inst.length==0)
+            {
+                console.log("no existe instalacion asociada al maquina ");
+                return   res.send(401,"datos no validos");
+            }
+
+            Install_elem.populate(inst,{path:"elem_id"},function(err, inst){
+                if(inst.length==0) return  res.send(401,"datos no validos");  // si no hay usuario mandamos un error
+                //return   res.send(201,"ok");
+                return res.json({
+                        INSTALLNAME :         inst[0].elem_id.nombre,
+                        VERSIONSW :         inst[0].elem_id.version_sw,
+                        CARRIOTS_DEVICE :   inst[0].elem_id.device,
+                        CARRIOTS_DEVICEIN : inst[0].elem_id.device_in,
+                        CARRIOTS_API_KEY :  inst[0].elem_id.apikey,
+                        HEJMO_WRITE :       inst[0].elem_id.hejmo_write,
+                        HEJMO_CALL_MOVIL :  inst[0].elem_id.hejmo_call_movil,
+                        HEJMO_CALL_GPS :    inst[0].elem_id.hejmo_call_gps,
+                        type :              inst[0].elem_id.type,
+                        ELEM :  inst[0].elem_id.elem
                         });
             });
         }); 
