@@ -49,7 +49,16 @@ var Schema = mongoose.Schema;
     version_sw :  {
         type: String ,
         required: true
-    }
+    },
+    hejmo_correo :  {
+        type: String ,
+        required: true
+    },
+    hejmo_hide_correo :  {
+        type: String ,
+        required: true
+    },
+    
     
  });
 

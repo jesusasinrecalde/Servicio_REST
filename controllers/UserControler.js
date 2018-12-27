@@ -145,6 +145,8 @@ module.exports = class UserController {
                         HEJMO_WRITE :       inst[0].elem_id.hejmo_write,
                         HEJMO_CALL_MOVIL :  inst[0].elem_id.hejmo_call_movil,
                         HEJMO_CALL_GPS :    inst[0].elem_id.hejmo_call_gps,
+                        HEJMO_CORREO :      inst[0].elem_id.hejmo_correo,
+                        HEJMO_HIDE_CORREO : inst[0].elem_id.hejmo_hide_correo,
                         type :              inst[0].elem_id.type,
                         ELEM :  inst[0].elem_id.elem
                         });
